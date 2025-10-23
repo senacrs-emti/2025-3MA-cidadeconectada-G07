@@ -1,0 +1,10 @@
+:root{
+    --azul-fundo: #3069d5;
+    --branco: #ffff;
+    --preto: #0000;
+}
+
+@font-face {
+    font-family: 'fontePadrao';
+    src: url(fontes/behance-637fcad397009.ttf);
+}
