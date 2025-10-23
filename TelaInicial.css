@@ -9,8 +9,10 @@
     src: url(fontes/behance-637fcad397009.ttf);
 }
 
-#backgroud{
+main{
+    padding: 0;
+    margin: 0;
     background-color: var(--azul-fundo);
     width: 100%;
-    height: 100%;
+    height: 100vh;
 }
