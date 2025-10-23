@@ -8,3 +8,9 @@
     font-family: 'fontePadrao';
     src: url(fontes/behance-637fcad397009.ttf);
 }
+
+#backgroud{
+    background-color: var(--azul-fundo);
+    width: 100%;
+    height: 100%;
+}
