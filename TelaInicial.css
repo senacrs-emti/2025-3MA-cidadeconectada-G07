@@ -61,3 +61,16 @@ body {
     text-align: center;
     font-size: 1.5vh;
 }
+
+#txtPrincipal{
+    font-family: 'fontePadrao';
+    color: var(--branco);
+    font-size: 10vw;
+}
+#divTxtPrincipal{
+    width: 40vw;
+}
+#caixaUm{
+    width: 30vw;
+    float: left;
+}
