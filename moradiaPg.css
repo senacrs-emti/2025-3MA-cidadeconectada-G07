@@ -1,0 +1,42 @@
+:root{
+    --azul-fundo: #3069d5;
+    --branco: #ffff;
+    --preto: #0000;
+}
+
+body{
+    background-color: var(--azul-fundo);
+}
+
+#titulo{
+    color: var(--branco);
+    font-size: 4vh;
+    width: 45vw;
+    text-align: center;
+    margin-left: 25vw;
+    margin-top: 10vh;
+}
+#mapa{
+    width: 55vw;
+    height: 30vh;
+    background-color: var(--branco);
+    margin-left: 20vw;
+}
+#caixa1{}
+
+#descLocal{
+    font-size: 3vh;
+    width: 60vw;
+    margin-left: 17vw;
+    text-align: center;
+    color: var(--branco);
+}
+#bicicleta{
+    width: 13vw;
+    height: 10vh;
+    background-color: var(--branco);
+}
+.tituloautomoveis{
+    font-size: 3vh;
+    text-decoration: none;
+}
