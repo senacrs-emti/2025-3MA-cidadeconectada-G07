@@ -8,6 +8,11 @@
     font-family: 'fontePadrao';
     src: url(fontes/behance-637fcad397009.ttf);
 }
+
+.elms-sans{
+  font-family: "Elms Sans", sans-serif;
+  font-optical-sizing: auto;
+}
 body {
     margin: 0;      /* Remove a margem externa padrão */
     background-color: var(--azul-fundo);
@@ -19,13 +24,11 @@ body {
     width: 32%;
     height: 30vh;
     margin-top: 20vh;
-    background-color: palevioletred;
 }
 #caixaTesteDois{
     width: 60%;
     height: 40vh;
     margin-top: 10vh;
-    background-color: rgb(216, 72, 120);
 }
 
 #caixaTesteUm, #caixaTesteDois {
@@ -84,9 +87,9 @@ body {
 /* css do titulo */
 
 #txtPrincipal{
-    font-family: 'fontePadrao';
+  font-family: "Elms Sans", sans-serif;
     color: var(--branco);
-    font-size: 10vw;
+    font-size: 9vw;
     text-align: center;
 
 }
@@ -98,14 +101,42 @@ body {
 
 /* css das caixas de teste */
 #caixaTesteTres{
-    width: 60%;
+    width: 55%;
     height: 40vh;
-    background-color: rgb(84, 27, 46);
 }
 
 #caixaTesteQuatro{
     width: 32%;
     height: 30vh;
     margin-left: 5vw;
-    background-color: rgb(150, 50, 100);
+}
+
+#caixaTesteTres, #caixaTesteQuatro {
+    display: inline-block;
+    vertical-align: top; /* opcional para alinhar pelo topo */
+}
+
+#btnInicialTres{
+    margin-top: 5vh;
+}
+
+/* css do segundo titulo */
+
+#txtSecundario{
+  font-family: "Elms Sans", sans-serif;
+    color: var(--branco);
+    font-size: 4vw;
+    text-align: center;
+    margin-top: 13vh;
+    float: left;
+    display: flex;
+
+}
+
+/* css do icone de som */
+#segundoSom{
+    width: 4vw;
+    height: auto;
+    display: flex;
+    float: right;
 }
