@@ -45,9 +45,13 @@ body {
     width: 22vw;
     height: 13vh;
     background-color: var(--branco);
+    flex-direction: column; /* Coloca texto e imagem em coluna */
+    text-align: center;     /* Centraliza o texto */
+
 }
 #btnInicialUm{
     margin-left: 5vw;
+
 }
 
 #btnInicialDois{
@@ -78,9 +82,11 @@ body {
 
 
 .titulosBtn{
-    margin-top: -8vh;
+    margin-top: -1vh;
     text-align: center;
     font-size: 1.5vh;
+  font-family: "Elms Sans", sans-serif;
+  font-weight: bold;
 }
 
 
@@ -139,4 +145,18 @@ body {
     height: auto;
     display: flex;
     float: right;
+}
+
+/* css das imagens dentro dos botões */
+.desenhos{
+    width: 13vw;
+    height: auto;
+    margin-top: -1vh;
+    
+}
+
+#imgCentro{
+    width: 18vw;
+    margin-top: -3vh;
+    margin-bottom: -2vh;
 }
