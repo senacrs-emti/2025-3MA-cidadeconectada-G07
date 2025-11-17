@@ -4,165 +4,120 @@
     --preto: #0000;
 }
 
-@font-face {
-    font-family: 'fontePadrao';
-    src: url(fontes/behance-637fcad397009.ttf);
-}
-
-.elms-sans{
-  font-family: "Elms Sans", sans-serif;
-  font-optical-sizing: auto;
-}
-body {
-    margin: 0;      /* Remove a margem externa padrão */
+body{
     background-color: var(--azul-fundo);
-    width: 100%;
-    height: 1000vh;
-    font-family: 'fontePadrao';
 }
-#caixaTesteUm{
-    width: 32%;
-    height: 30vh;
-    margin-top: 20vh;
-}
-#caixaTesteDois{
-    width: 60%;
-    height: 40vh;
-    margin-top: 10vh;
-}
-
-#caixaTesteUm, #caixaTesteDois {
-    display: inline-block;
-    vertical-align: top; /* opcional para alinhar pelo topo */
-}
-
-
-/* css das caixas */
-.btnIniciais{
-    display: flex; /* Define um contêiner flexível */
-    justify-content: center; /* Centraliza horizontalmente */
-    align-items: center; /* Centraliza verticalmente */
-    width: 22vw;
-    height: 13vh;
-    background-color: var(--branco);
-    flex-direction: column; /* Coloca texto e imagem em coluna */
-    text-align: center;     /* Centraliza o texto */
-
-}
-#btnInicialUm{
-    margin-left: 5vw;
-
-}
-
-#btnInicialDois{
-    margin-top: 5vh;
-    margin-left: 5vw;
-}
-
-#btnInicialTres{
-    margin-left: 5vw;
-    margin-right: 6vw;
+#setaBack{
+    width: 10vw;
+    height: 10vh;
     float: left;
 }
-
-#btnInicialQuatro{
-    margin-top: 5vh;
+#setaBackImg{
+    width: 6vw;
+    height: 4vh;
+    margin-top: 2vh;
 }
 
-#btnInicialCinco{
-    margin-top: 5vh;
-    margin-left: 5vw;
-    margin-right: 6vw;
-    float: left;
-}
-
-#btnInicialSeis{
-    margin-top: 5vh;
-}
-
-
-.titulosBtn{
-    margin-top: -1vh;
+#titulo{
+    color: var(--branco);
+    font-size: 4vh;
+    width: 60vw;
     text-align: center;
-    font-size: 1.5vh;
-    font-family: "Elms Sans", sans-serif;
-    font-weight: bold;
+    margin-left: 20vw;
+
+
+}
+#mapa{
+    width: 55vw;
+    height: 30vh;
+    background-color: var(--branco);
+    margin-left: 23vw;
+}
+#caixa1{}
+
+#descLocal{
+    font-size: 3vh;
+    width: 60vw;
+    margin-left: 19vw;
+    text-align: center;
+    color: var(--branco);
+}
+#automoveis{
+    margin-left: 2vw;
+    display: block;
+    width: 100%;
+    height: 10vh;
+}
+.tituloautomoveis{
+    font-size: 1.4vh;
+    margin-top: 0%;
+    padding-top: 1vh;
+    text-align: center;
+}
+.atituloss{
+    text-decoration: none;
     color: black;
 }
-
-a{
-    text-decoration: none;
-}
-
-/* css do titulo */
-
-#txtPrincipal{
-  font-family: "Elms Sans", sans-serif;
-    color: var(--branco);
-    font-size: 9vw;
-    text-align: center;
-
-}
-
-
-.divTxtPrincipal {
-    width: 80vw;
-}
-
-/* css das caixas de teste */
-#caixaTesteTres{
-    width: 55%;
-    height: 40vh;
-}
-
-#caixaTesteQuatro{
-    width: 32%;
-    height: 30vh;
+#bicicleta{
+    width: 17vw;
+    height: 10vh;
+    background-color: var(--branco);
     margin-left: 5vw;
+    float: left;
 }
-
-#caixaTesteTres, #caixaTesteQuatro {
-    display: inline-block;
-    vertical-align: top; /* opcional para alinhar pelo topo */
+#carro{
+    width: 17vw;
+    height: 10vh;
+    background-color: var(--branco);
+    margin-left: 5vw;
+    float: left;
 }
-
-#btnInicialTres{
-    margin-top: 5vh;
+#onibus{
+    width: 17vw;
+    height: 10vh;
+    background-color: var(--branco);
+    margin-left: 5vw;
+    float: left;
 }
-
-/* css do segundo titulo */
-
-#txtSecundario{
-  font-family: "Elms Sans", sans-serif;
-    color: var(--branco);
-    font-size: 4vw;
-    text-align: center;
-    margin-top: 13vh;
-
+#andando{
+    width: 17vw;
+    height: 10vh;
+    background-color: var(--branco);
+    margin-left: 5vw;
+    float: left;
 }
-
-/* css do icone de som */
-#segundoSom{
-    width: 4vw;
-    height: auto;
+.imgsTransporte{
+    width: 12vw;
+    height: 6vh;
+    margin-left: 1.5vh;
+    margin-top: 0;
+    padding-top: 0%;
+}
+#botoesadicionais{
     display: flex;
-    float: right;
 }
-
-/* css das imagens dentro dos botões */
-.desenhos{
-    width: 13vw;
-    height: auto;
-    margin-top: -1vh;
+#maisInfo{
+    width: 30vw;
+    height: 4vh;
+    background-color: var(--branco);
+    margin-left: 12vw;
+    position: absolute;
+    margin-top: 5vw;
+    border-radius: 30px 30px 30px 30px;
+}
+#verTodos{
+    width: 30vw;
+    height: 4vh;
+    background-color: var(--branco);
+    margin-left: 55vw;
+    float: left;
+    margin-top: 5vw;
+    border-radius: 30px 30px 30px 30px;
     
 }
-
-#imgCentro{
-    width: 18vw;
-    margin-top: -3vh;
-    margin-bottom: -2vh;
-}
-
-#imgSaude{
-    margin-left: 2.5vw;
+.textBtAdd{
+    font-size: 1.4vh;
+    padding-top: 0;
+    margin-top: 1vh;
+    text-align: center;
 }
