@@ -39,6 +39,7 @@ body{
     height: 30vh;
     background-color: var(--branco);
     margin-left: 23vw;
+    margin-bottom: 3vh;
 }
 #caixa1{}
 
@@ -48,6 +49,9 @@ body{
     margin-left: 19vw;
     text-align: center;
     color: var(--branco);
+    margin-top: 0;
+    margin-bottom: 2;
+
 }
 #descLocal2{
     font-size: 3vh;
@@ -55,6 +59,9 @@ body{
     margin-left: 19vw;
     text-align: center;
     color: var(--branco);
+    margin-top: 0;
+    margin-bottom: 2vh;
+
 }
 #descLocal3{
     font-size: 3vh;
@@ -62,6 +69,8 @@ body{
     margin-left: 19vw;
     text-align: center;
     color: var(--branco);
+    margin-top: 0;
+    margin-bottom: 2vh;
 }
 #automoveis{
     margin-left: 2vw;

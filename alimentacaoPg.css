@@ -49,20 +49,6 @@ body{
     text-align: center;
     color: var(--branco);
 }
-#descLocal2{
-    font-size: 3vh;
-    width: 60vw;
-    margin-left: 19vw;
-    text-align: center;
-    color: var(--branco);
-}
-#descLocal3{
-    font-size: 3vh;
-    width: 60vw;
-    margin-left: 19vw;
-    text-align: center;
-    color: var(--branco);
-}
 #automoveis{
     margin-left: 2vw;
     display: block;
