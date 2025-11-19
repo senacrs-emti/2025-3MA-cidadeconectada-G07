@@ -24,8 +24,6 @@ body{
     width: 60vw;
     text-align: center;
     margin-left: 20vw;
-
-
 }
 #mapa{
     width: 55vw;
@@ -33,8 +31,6 @@ body{
     background-color: var(--branco);
     margin-left: 23vw;
 }
-#caixa1{}
-
 #descLocal{
     font-size: 3vh;
     width: 60vw;
