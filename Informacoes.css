@@ -8,13 +8,20 @@ body{
     background-color: var(--azul-fundo);
 }
 #setaBack{
-    width: 10vw;
+    width: 13vw;
     height: 10vh;
     float: left;
 }
 #setaBackImg{
     width: 6vw;
     height: 4vh;
+    margin-top: 2vh;
+    margin-left: 2vw;
+}
+#casaIcon{
+    width: 17vw;
+    height: 10vh;
+    margin-left: 28vw;
     margin-top: 2vh;
 }
 
@@ -30,6 +37,7 @@ body{
     height: 30vh;
     background-color: var(--branco);
     margin-left: 23vw;
+    margin-bottom: 3vh;
 }
 #descLocal{
     font-size: 3vh;
@@ -37,6 +45,28 @@ body{
     margin-left: 19vw;
     text-align: center;
     color: var(--branco);
+    margin-top: 0;
+    margin-bottom: 2;
+
+}
+#descLocal2{
+    font-size: 3vh;
+    width: 60vw;
+    margin-left: 19vw;
+    text-align: center;
+    color: var(--branco);
+    margin-top: 0;
+    margin-bottom: 2vh;
+
+}
+#descLocal3{
+    font-size: 3vh;
+    width: 60vw;
+    margin-left: 19vw;
+    text-align: center;
+    color: var(--branco);
+    margin-top: 0;
+    margin-bottom: 2vh;
 }
 #automoveis{
     margin-left: 2vw;
