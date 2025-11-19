@@ -8,6 +8,11 @@
     font-family: 'fontePadrao';
     src: url(fontes/behance-637fcad397009.ttf);
 }
+
+.elms-sans{
+  font-family: "Elms Sans", sans-serif;
+  font-optical-sizing: auto;
+}
 body {
     margin: 0;      /* Remove a margem externa padrão */
     background-color: var(--azul-fundo);
@@ -15,28 +20,47 @@ body {
     height: 1000vh;
     font-family: 'fontePadrao';
 }
+#caixaTesteUm{
+    width: 32%;
+    height: 30vh;
+    margin-top: 20vh;
+}
+#caixaTesteDois{
+    width: 60%;
+    height: 40vh;
+    margin-top: 10vh;
+}
 
+#caixaTesteUm, #caixaTesteDois {
+    display: inline-block;
+    vertical-align: top; /* opcional para alinhar pelo topo */
+}
+
+
+/* css das caixas */
 .btnIniciais{
     display: flex; /* Define um contêiner flexível */
     justify-content: center; /* Centraliza horizontalmente */
     align-items: center; /* Centraliza verticalmente */
-    width: 25vw;
+    width: 22vw;
     height: 13vh;
     background-color: var(--branco);
+    flex-direction: column; /* Coloca texto e imagem em coluna */
+    text-align: center;     /* Centraliza o texto */
+
 }
 #btnInicialUm{
-    margin-top: 20vh;
-    margin-left: 10vw;
+    margin-left: 5vw;
+
 }
 
 #btnInicialDois{
     margin-top: 5vh;
-    margin-left: 10vw;
+    margin-left: 5vw;
 }
 
 #btnInicialTres{
-    margin-top: 5vh;
-    margin-left: 10vw;
+    margin-left: 5vw;
     margin-right: 6vw;
     float: left;
 }
@@ -47,7 +71,7 @@ body {
 
 #btnInicialCinco{
     margin-top: 5vh;
-    margin-left: 10vw;
+    margin-left: 5vw;
     margin-right: 6vw;
     float: left;
 }
@@ -56,21 +80,89 @@ body {
     margin-top: 5vh;
 }
 
+
 .titulosBtn{
-    margin-top: -8vh;
+    margin-top: -1vh;
     text-align: center;
     font-size: 1.5vh;
+    font-family: "Elms Sans", sans-serif;
+    font-weight: bold;
+    color: black;
 }
 
+a{
+    text-decoration: none;
+}
+
+/* css do titulo */
+
 #txtPrincipal{
-    font-family: 'fontePadrao';
+  font-family: "Elms Sans", sans-serif;
     color: var(--branco);
-    font-size: 10vw;
+    font-size: 9vw;
+    text-align: center;
+
 }
-#divTxtPrincipal{
-    width: 40vw;
+
+
+.divTxtPrincipal {
+    width: 80vw;
 }
-#caixaUm{
-    width: 30vw;
-    float: left;
+
+/* css das caixas de teste */
+#caixaTesteTres{
+    width: 55%;
+    height: 40vh;
+}
+
+#caixaTesteQuatro{
+    width: 32%;
+    height: 30vh;
+    margin-left: 5vw;
+}
+
+#caixaTesteTres, #caixaTesteQuatro {
+    display: inline-block;
+    vertical-align: top; /* opcional para alinhar pelo topo */
+}
+
+#btnInicialTres{
+    margin-top: 5vh;
+}
+
+/* css do segundo titulo */
+
+#txtSecundario{
+  font-family: "Elms Sans", sans-serif;
+    color: var(--branco);
+    font-size: 4vw;
+    text-align: center;
+    margin-top: 13vh;
+
+}
+
+/* css do icone de som */
+#segundoSom{
+    width: 4vw;
+    height: auto;
+    display: flex;
+    float: right;
+}
+
+/* css das imagens dentro dos botões */
+.desenhos{
+    width: 13vw;
+    height: auto;
+    margin-top: -1vh;
+    
+}
+
+#imgCentro{
+    width: 18vw;
+    margin-top: -3vh;
+    margin-bottom: -2vh;
+}
+
+#imgSaude{
+    margin-left: 2.5vw;
 }
