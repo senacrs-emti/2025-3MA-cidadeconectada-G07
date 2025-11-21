@@ -1,0 +1,86 @@
+:root{
+    --azul-fundo: #3069d5;
+    --branco: #ffff;
+    --preto: #0000;
+}
+.poppins-regular {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+*{
+  font-family: "Poppins", sans-serif;
+}
+body{
+    background-color: var(--azul-fundo);
+}
+#setaBack{
+    width: 13vw;
+    height: 10vh;
+    float: left;
+}
+#setaBackImg{
+    width: 6vw;
+    height: 4vh;
+    margin-top: 2vh;
+    margin-left: 2vw;
+}
+#casaIcon{
+    width: 25vw;
+    height: 17vh;
+    margin-left: 28.5vw;
+    margin-top: 2vh;
+    margin-bottom: -2vh;
+}
+
+#titulo{
+    color: var(--branco);
+    font-size: 4vh;
+    width: 60vw;
+    text-align: center;
+    margin-left: 20vw;
+    font-family: "Elms Sans", sans-serif;
+}
+
+.locais{
+    width: 60vw;
+    height: 6vh;
+    background-color: var(--branco);
+    margin-left: 20vw;
+    margin-top: 10vw;
+    border-radius: 30px 30px 30px 30px;
+    text-decoration: none;
+    color: black;
+
+}
+.nomesLocais{
+    font-size: 1.8vh;
+    padding-top: 0;
+    margin-top: 1vh;
+    text-align: center;
+}
+
+#botoesadicionais{
+    display: flex;
+}
+#Voltar{
+    width: 60vw;
+    height: 4vh;
+    background-color: var(--branco);
+    margin-left: 20vw;
+    float: left;
+    margin-top: 10vw;
+    border-radius: 30px 30px 30px 30px;
+    text-decoration: none;
+    color: black;
+    
+}
+.textBtAdd{
+    font-size: 1.4vh;
+    padding-top: 0;
+    margin-top: 1vh;
+    text-align: center;
+}
+a{
+    text-decoration: none;
+}
