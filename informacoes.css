@@ -3,6 +3,14 @@
     --branco: #ffff;
     --preto: #0000;
 }
+.poppins-regular {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+*{
+  font-family: "Poppins", sans-serif;
+}
 
 body{
     background-color: var(--azul-fundo);
@@ -21,33 +29,34 @@ body{
 #casaIcon{
     width: 17vw;
     height: 10vh;
-    margin-left: 28vw;
+    margin-left: 32.5vw;
     margin-top: 2vh;
 }
 
 #titulo{
     color: var(--branco);
-    font-size: 4vh;
-    width: 60vw;
+    font-size: 3vh;
+    width: 80vw;
     text-align: center;
-    margin-left: 20vw;
-
-
+    margin-left: 10vw;
 }
 #mapa{
     width: 55vw;
-    height: 30vh;
+    height: 25vh;
     background-color: var(--branco);
     margin-left: 23vw;
+    margin-bottom: 4vh;
 }
-#caixa1{}
 
-#descLocal{
-    font-size: 3vh;
+.desLocais{
+    font-size: 2.5vh;
     width: 60vw;
     margin-left: 19vw;
     text-align: center;
     color: var(--branco);
+    margin-top: 0;
+    margin-bottom: 2vh;
+
 }
 #automoveis{
     margin-left: 2vw;
@@ -65,28 +74,7 @@ body{
     text-decoration: none;
     color: black;
 }
-#bicicleta{
-    width: 17vw;
-    height: 10vh;
-    background-color: var(--branco);
-    margin-left: 5vw;
-    float: left;
-}
-#carro{
-    width: 17vw;
-    height: 10vh;
-    background-color: var(--branco);
-    margin-left: 5vw;
-    float: left;
-}
-#onibus{
-    width: 17vw;
-    height: 10vh;
-    background-color: var(--branco);
-    margin-left: 5vw;
-    float: left;
-}
-#andando{
+.escolhasDeIr{
     width: 17vw;
     height: 10vh;
     background-color: var(--branco);
@@ -95,31 +83,24 @@ body{
 }
 .imgsTransporte{
     width: 12vw;
-    height: 6vh;
+    height: 8vh;
+    margin-top: -1vh;
     margin-left: 1.5vh;
-    margin-top: 0;
     padding-top: 0%;
 }
 #botoesadicionais{
     display: flex;
 }
-#maisInfo{
-    width: 30vw;
-    height: 4vh;
-    background-color: var(--branco);
-    margin-left: 12vw;
-    position: absolute;
-    margin-top: 5vw;
-    border-radius: 30px 30px 30px 30px;
-}
 #verTodos{
     width: 30vw;
     height: 4vh;
     background-color: var(--branco);
-    margin-left: 55vw;
+    margin-left: 32vw;
     float: left;
     margin-top: 5vw;
     border-radius: 30px 30px 30px 30px;
+    text-decoration: none;
+    color: black;
     
 }
 .textBtAdd{

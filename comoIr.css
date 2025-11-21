@@ -4,12 +4,14 @@
     --preto: #0000;
 }
 
-@font-face {
-    font-family: 'fontePadrao';
-    src: url(fontes/behance-637fcad397009.ttf);
+.poppins-regular {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
-
-
+*{
+  font-family: "Poppins", sans-serif;
+}
 body{
     background-color: var(--azul-fundo);
 }
@@ -34,33 +36,28 @@ body{
 #titulo{
     color: var(--branco);
     font-size: 4vh;
-    width: 75vw;
+    width: 80vw;
     text-align: center;
     margin-left: 10vw;
-    font-family: "Elms Sans", sans-serif;
 
 
 }
-#mapaFormaDeIr{
-    width: 65vw;
-    height: 30vh;
-    background-color: var(--branco);
-    margin-left: 18vw;
-    margin-bottom: 3vh;
-}
-
 #descLocal{
     font-size: 2vh;
     width: 60vw;
     margin-left: 19vw;
     text-align: center;
     color: var(--branco);
-    margin-top: 0;
-    margin-bottom: 2;
-    font-family: "Elms Sans", sans-serif;
-    font-weight: bold;
-
+    margin-bottom: 5vh;
 }
+#mapa{
+    width: 55vw;
+    height: 25vh;
+    background-color: var(--branco);
+    margin-left: 23vw;
+    margin-bottom: 10vh;
+}
+
 #automoveis{
     margin-left: 2vw;
     display: block;
@@ -77,33 +74,45 @@ body{
     text-decoration: none;
     color: black;
 }
+
 .escolhasDeIr{
     width: 17vw;
     height: 10vh;
     background-color: var(--branco);
     margin-left: 5vw;
     float: left;
-    font-family: "Elms Sans", sans-serif;
 }
 .imgsTransporte{
     width: 12vw;
-    height: 6vh;
-    margin-left: 1.5vh;
+    height: 8vh;
     margin-top: -1vh;
+    margin-left: 1.5vh;
     padding-top: 0%;
 }
 #botoesadicionais{
     display: flex;
 }
+#maisInfo{
+    width: 30vw;
+    height: 4vh;
+    background-color: var(--branco);
+    margin-left: 12vw;
+    position: absolute;
+    margin-top: 5vw;
+    border-radius: 30px 30px 30px 30px;
+    text-decoration: none;
+    color: black;
+}
 #verTodos{
     width: 30vw;
     height: 4vh;
     background-color: var(--branco);
-    margin-left: 35vw;
+    margin-left: 55vw;
     float: left;
     margin-top: 5vw;
     border-radius: 30px 30px 30px 30px;
-    font-family: "Elms Sans", sans-serif;
+    text-decoration: none;
+    color: black;
     
 }
 .textBtAdd{
