@@ -17,7 +17,6 @@ body {
     background-color: var(--azul-fundo);
     width: 100%;
     height: 1000vh;
-    font-family: 'fontePadrao';
 }
 #caixaTesteUm{
     width: 32%;
@@ -84,7 +83,6 @@ body {
     margin-top: -1vh;
     text-align: center;
     font-size: 1.5vh;
-    font-family: "Elms Sans", sans-serif;
     font-weight: bold;
     color: black;
 }
@@ -96,7 +94,6 @@ a{
 /* css do titulo */
 
 #txtPrincipal{
-  font-family: "Elms Sans", sans-serif;
     color: var(--branco);
     font-size: 9vw;
     text-align: center;
@@ -132,11 +129,10 @@ a{
 /* css do segundo titulo */
 
 #txtSecundario{
-  font-family: "Elms Sans", sans-serif;
     color: var(--branco);
-    font-size: 4vw;
+    font-size: 4.5vw;
     text-align: center;
-    margin-top: 13vh;
+    margin-top: 18vh;
 
 }
 
