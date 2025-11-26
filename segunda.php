@@ -1,4 +1,7 @@
 <?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
 // ==========================
 // 1) CONEXÃO COM O BANCO
 // ==========================
@@ -87,7 +90,7 @@ $icone = $icones[$tipo];
 
     <div id="mapa">
         <img 
-            src="imgs/imgsBanco/<?php echo $dados['foto']; ?>"
+            src="imgs/imgsMapas/<?php echo $dados['foto']; ?>"
             alt="Foto do local"
             style="width: 100%; height: 100%; object-fit: cover;"
         >
