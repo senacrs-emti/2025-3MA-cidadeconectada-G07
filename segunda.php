@@ -11,29 +11,28 @@ if ($conn->connect_error) {
 }
 
 // ==========================
-// 2) PEGAR TIPO DA URL
+// 2) PEGAR TIPO E ID DA URL
 // ==========================
 $tipo = $_GET['tipo'] ?? '';
+$id   = $_GET['id'] ?? 1; // se não mandar id, pega o primeiro
 
 if ($tipo == '') {
     die("Nenhum tipo enviado!");
 }
 
 // ==========================
-// 3) DEFINIR QUAL TABELA BUSCAR
-//    importante: a tabela precisa ter o mesmo nome do tipo
-//    exemplo: tipo=moradia -> tabela moradia
+// 3) VALIDAR TABELA
 // ==========================
-$tabelas_validas = ["moradia","alimentacao","postosaude","centropop"];
+$tabelas_validas = ["moradia", "alimentacao", "postosaude", "centropop"];
 
 if (!in_array($tipo, $tabelas_validas)) {
     die("Tipo inválido!");
 }
 
 // ==========================
-// 4) BUSCAR O PRIMEIRO REGISTRO DA TABELA
+// 4) PEGAR O REGISTRO CORRETO
 // ==========================
-$sql = "SELECT * FROM $tipo LIMIT 1";
+$sql = "SELECT * FROM $tipo WHERE id = $id LIMIT 1";
 $result = $conn->query($sql);
 
 if ($result->num_rows == 0) {
@@ -41,7 +40,10 @@ if ($result->num_rows == 0) {
 }
 
 $dados = $result->fetch_assoc();
-// mapa de qual ícone usar para cada tipo
+
+// ==========================
+// 5) SELECIONAR ÍCONE
+// ==========================
 $icones = [
     "moradia"     => "casa.icon.png",
     "alimentacao" => "prato.icon.png",
@@ -49,85 +51,69 @@ $icones = [
     "centropop"   => "pop.icon.png"
 ];
 
-// descobre qual ícone usar
 $icone = $icones[$tipo];
-
-
 ?>
-
 <!DOCTYPE html>
-
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo $dados['nome']; ?></title>
+
     <link rel="stylesheet" href="segundaPg.css?v=<?php echo time(); ?>">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
-    </style>
 </head>
 
 <body>
 
-   <div id="caixa1">
+<div id="caixa1">
 
-```
     <img id="setaBackImg" src="imgs/imgsIcones/imgseta.png" alt="" onclick="history.back()">
 
-    <!-- ÍCONE DO BANCO -->
-    <img 
-        id="casaIcon"
-        src="imgs/imgsIcones/<?php echo $icone; ?>"
-        alt="Ícone"
-    >
+    <!-- ÍCONE CORRETO -->
+    <img id="casaIcon" src="imgs/imgsIcones/<?php echo $icone; ?>" alt="">
 
+    <!-- TÍTULO -->
+    <h1 id="titulo"><?php echo strtoupper($dados['nome']); ?></h1>
 
-    <!-- TÍTULO DO BANCO -->
-    <h1 id="titulo">
-        <?php echo strtoupper($dados['nome']); ?>
-    </h1>
-
+    <!-- MAPA / FOTO -->
     <div id="mapa">
-        <img 
-            src="imgs/imgsMapas/<?php echo $dados['foto']; ?>"
-            alt="Foto do local"
-            style="width: 100%; height: 100%; object-fit: cover;"
-        >
+        <img src="imgs/imgsMapas/<?php echo $dados['foto']; ?>" 
+             alt=""
+             style="width: 100%; height: 100%; object-fit: cover;">
     </div>
 
+    <!-- ENDEREÇO -->
+    <p id="descLocal"><?php echo $dados['endereco']; ?></p>
+</div>
 
-    <!-- ENDEREÇO DO BANCO -->
-    <p id="descLocal">
-        <?php echo $dados['endereco']; ?>
-    </p>
-    
-</div> 
 
+<!-- ========================== -->
+<!--  OPÇÕES DE COMO IR         -->
+<!-- ========================== -->
 <div id="automoveis">
 
-    <a href="comoIr.php?tipo=<?php echo $tipo; ?>&modo=bicicleta" class="atituloss">
+    <a href="comoIr.php?tipo=<?php echo $tipo; ?>&id=<?php echo $id; ?>&modo=bicicleta" class="atituloss">
         <div class="escolhasDeIr" id="bicicleta">
             <h3 class="tituloautomoveis">BICICLETA</h3>
             <img class="imgsTransporte" src="imgs/imgsIcones/bicicletaImg.png" alt="">
         </div>
     </a>
-    
-    <a href="comoIr.php?tipo=<?php echo $tipo; ?>&modo=carro" class="atituloss">
+
+    <a href="comoIr.php?tipo=<?php echo $tipo; ?>&id=<?php echo $id; ?>&modo=carro" class="atituloss">
         <div class="escolhasDeIr" id="carro">
             <h3 class="tituloautomoveis">CARRO</h3>
             <img class="imgsTransporte" src="imgs/imgsIcones/carroImg.png" alt="">
         </div>
     </a>
 
-    <a href="comoIr.php?tipo=<?php echo $tipo; ?>&modo=onibus" class="atituloss">
+    <a href="comoIr.php?tipo=<?php echo $tipo; ?>&id=<?php echo $id; ?>&modo=onibus" class="atituloss">
         <div class="escolhasDeIr" id="onibus">
             <h3 class="tituloautomoveis">ÔNIBUS</h3>
             <img class="imgsTransporte" src="imgs/imgsIcones/onibusImg.png" alt="">
         </div>
     </a>
 
-    <a href="comoIr.php?tipo=<?php echo $tipo; ?>&modo=andando" class="atituloss">
+    <a href="comoIr.php?tipo=<?php echo $tipo; ?>&id=<?php echo $id; ?>&modo=andando" class="atituloss">
         <div class="escolhasDeIr" id="andando">
             <h3 class="tituloautomoveis">ANDANDO</h3>
             <img class="imgsTransporte" src="imgs/imgsIcones/andandoImg.png" alt="">
@@ -136,9 +122,13 @@ $icone = $icones[$tipo];
 
 </div>
 
+
+<!-- ========================== -->
+<!-- MAIS INFORMAÇÕES / VER TODOS -->
+<!-- ========================== -->
 <div id="botoesadicionais">
 
-    <a href="Informacoes.php?tipo=<?php echo $tipo; ?>">
+    <a href="Informacoes.php?tipo=<?php echo $tipo; ?>&id=<?php echo $id; ?>">
         <div id="maisInfo">
             <h4 class="textBtAdd">MAIS INFORMAÇÕES</h4>
         </div>
@@ -151,7 +141,6 @@ $icone = $icones[$tipo];
     </a>
 
 </div>
-```
 
 </body>
 </html>
