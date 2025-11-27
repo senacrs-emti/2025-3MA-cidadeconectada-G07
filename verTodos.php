@@ -52,7 +52,7 @@ $css   = $css_arquivos[$tipo];
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <title><?php echo $titulo; ?></title>
+    <title>Totem</title>
     <link rel="stylesheet" href="<?php echo $css; ?>?v=<?php echo time(); ?>">
 </head>
 

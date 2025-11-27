@@ -58,7 +58,7 @@ $icone = $icones[$tipo];
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo $dados['nome']; ?></title>
+    <title>Totem</title>
 
     <link rel="stylesheet" href="segundaPg.css?v=<?php echo time(); ?>">
 </head>
