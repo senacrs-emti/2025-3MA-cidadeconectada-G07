@@ -78,8 +78,8 @@ $icone = $icones[$tipo];
     <!-- MAPA / FOTO -->
     <div id="mapa">
         <img src="imgs/imgsMapas/<?php echo $dados['foto']; ?>" 
-             alt=""
-             style="width: 100%; height: 100%; object-fit: cover;">
+            alt=""
+            style="width: 100%; height: 100%; object-fit: cover;">
     </div>
 
     <!-- ENDEREÇO -->
