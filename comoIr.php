@@ -2,48 +2,38 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-// ==========================
-// 1) CONEXÃO COM O BANCO
-// ==========================
+// 1 — conexão
 $conn = new mysqli("localhost", "root", "", "atividadeotem");
 if ($conn->connect_error) {
-    die("Erro de conexão: " . $conn->connect_error);
+    die("Erro: " . $conn->connect_error);
 }
 
-// ==========================
-// 2) PEGAR TIPO E ID DA URL
-// ==========================
+// 2 — recebe tipo, id e modo
 $tipo = $_GET['tipo'] ?? '';
-$id   = $_GET['id'] ?? 1; // se não mandar id, pega o primeiro
+$id   = $_GET['id'] ?? '';
+$modo = $_GET['modo'] ?? '';
 
-if ($tipo == '') {
-    die("Nenhum tipo enviado!");
+if ($tipo == '' || $id == '' || $modo == '') {
+    die("Parâmetros inválidos!");
 }
 
-// ==========================
-// 3) VALIDAR TABELA
-// ==========================
-$tabelas_validas = ["moradia", "alimentacao", "postosaude", "centropop"];
-
+// 3 — tabelas válidas
+$tabelas_validas = ['moradia','alimentacao','postosaude','centropop'];
 if (!in_array($tipo, $tabelas_validas)) {
     die("Tipo inválido!");
 }
 
-// ==========================
-// 4) PEGAR O REGISTRO CORRETO
-// ==========================
-$sql = "SELECT * FROM $tipo WHERE id = $id LIMIT 1";
+// 4 — busca o registro correto
+$sql = "SELECT * FROM $tipo WHERE id=$id";
 $result = $conn->query($sql);
 
 if ($result->num_rows == 0) {
-    die("Nenhum registro encontrado!");
+    die("Registro não encontrado!");
 }
 
 $dados = $result->fetch_assoc();
 
-// ==========================
-// 5) SELECIONAR ÍCONE
-// ==========================
+// 5 — ícone do topo
 $icones = [
     "moradia"     => "casa.icon.png",
     "alimentacao" => "prato.icon.png",
@@ -52,73 +42,68 @@ $icones = [
 ];
 
 $icone = $icones[$tipo];
+
+// 6 — nome da imagem do mapa
+$imagemMapa = "imgs/imgsIndo/{$tipo}_{$id}_{$modo}.png";
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Totem</title>
-
-    <link rel="stylesheet" href="segundaPg.css?v=<?php echo time(); ?>">
+    <title>Como Ir</title>
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+    </style>
+    <link rel="stylesheet" href="comoIr.css?v=<?php echo time(); ?>">
 </head>
 
 <body>
 
 <div id="caixa1">
 
-    <img id="setaBackImg" src="imgs/imgsIcones/imgseta.png" alt="" onclick="history.back()">
+    <img id="setaBackImg" src="imgs/imgsIcones/imgseta.png" onclick="history.back()">
 
-    <!-- ÍCONE CORRETO -->
-    <img id="casaIcon" src="imgs/imgsIcones/<?php echo $icone; ?>" alt="">
+    <img id="casaIcon" src="imgs/imgsIcones/<?php echo $icone; ?>">
 
-    <!-- TÍTULO -->
-    <h1 id="titulo"><?php echo strtoupper($dados['nome']); ?></h1>
+    <h1 id="titulo">
+        <?php echo $dados['endereco']; ?>
+    </h1>
 
-    <!-- MAPA / FOTO -->
+    <p id="descLocal">
+        VOCÊ ESCOLHEU IR DE: <b><?php echo strtoupper($modo); ?></b>
+    </p>
+
     <div id="mapa">
-        <img src="imgs/imgsMapas/<?php echo $dados['foto']; ?>" 
-            alt=""
-            style="width: 100%; height: 100%; object-fit: cover;">
+        <img src="<?php echo $imagemMapa; ?>" style="width:100%; height:100%; object-fit:cover;">
     </div>
-
-    <!-- ENDEREÇO -->
-    <p id="descLocal"><?php echo $dados['endereco']; ?></p>
 </div>
 
-
-<!-- ========================== -->
-<!--  OPÇÕES DE COMO IR         -->
-<!-- ========================== -->
 <div id="automoveis">
 
     <a href="comoIr.php?tipo=<?php echo $tipo; ?>&id=<?php echo $id; ?>&modo=bicicleta" class="atituloss">
         <div class="escolhasDeIr" id="bicicleta">
             <h3 class="tituloautomoveis">BICICLETA</h3>
-            <img class="imgsTransporte" src="imgs/imgsIcones/bicicletaImg.png" alt="">
+            <img class="imgsTransporte" src="imgs/imgsIcones/bicicletaImg.png">
         </div>
     </a>
-    
+
     <a href="comoIr.php?tipo=<?php echo $tipo; ?>&id=<?php echo $id; ?>&modo=onibus" class="atituloss">
         <div class="escolhasDeIr" id="onibus">
             <h3 class="tituloautomoveis">ÔNIBUS</h3>
-            <img class="imgsTransporte" src="imgs/imgsIcones/onibusImg.png" alt="">
+            <img class="imgsTransporte" src="imgs/imgsIcones/onibusImg.png">
         </div>
     </a>
 
     <a href="comoIr.php?tipo=<?php echo $tipo; ?>&id=<?php echo $id; ?>&modo=andando" class="atituloss">
         <div class="escolhasDeIr" id="andando">
             <h3 class="tituloautomoveis">ANDANDO</h3>
-            <img class="imgsTransporte" src="imgs/imgsIcones/andandoImg.png" alt="">
+            <img class="imgsTransporte" src="imgs/imgsIcones/andandoImg.png">
         </div>
     </a>
 
 </div>
 
-
-<!-- ========================== -->
-<!-- MAIS INFORMAÇÕES / VER TODOS -->
-<!-- ========================== -->
 <div id="botoesadicionais">
 
     <a href="Informacoes.php?tipo=<?php echo $tipo; ?>&id=<?php echo $id; ?>">
