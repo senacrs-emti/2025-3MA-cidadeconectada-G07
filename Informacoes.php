@@ -53,6 +53,7 @@ $icone = $icones[$tipo];
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Totem</title>
+    <link rel="icon" href="imgs/imgFavicon" type="image/x-icon">
     <style>
     @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
     </style>
