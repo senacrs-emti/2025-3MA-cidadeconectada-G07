@@ -47,6 +47,8 @@ O sistema também permite selecionar o tipo de trajeto preferido — a pé, de �
     TECNOLOGIAS UTILIZADAS:
 
  HTML, CSS, PHP;
- API de mapas (Google Maps)
- Banco de dados (MySQL, PhpMyAdmin)
+ 
+ API de mapas (Google Maps);
+ 
+ Banco de dados (MySQL, PhpMyAdmin).
  
