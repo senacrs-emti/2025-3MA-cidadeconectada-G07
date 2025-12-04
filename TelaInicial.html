@@ -1,94 +1,100 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <style>
-    @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="TelaInicial.css">
-    <title>Totem</title>
+    <title>Totem - Cidade Conectada</title>
+    <style>
+        /* Estilo rápido para o Header do Admin */
+        header {
+            position: absolute;
+            top: 0;
+            right: 0;
+            padding: 20px;
+            width: 100%;
+            text-align: right;
+            box-sizing: border-box;
+        }
+        .btn-admin {
+            text-decoration: none;
+            color: rgba(255,255,255,0.3); /* Quase transparente para ser discreto */
+            font-family: 'Poppins', sans-serif;
+            font-size: 12px;
+            border: 1px solid rgba(255,255,255,0.3);
+            padding: 5px 10px;
+            border-radius: 15px;
+            transition: 0.3s;
+        }
+        .btn-admin:hover {
+            color: white;
+            border-color: white;
+            background-color: rgba(255,255,255,0.1);
+        }
+    </style>
 </head>
 <body>
     <header>
-
+        <a href="admin.php" class="btn-admin">⚙️ Área Admin</a>
     </header>
+    
     <main>
         <div id="caixaTesteUm">
-            
-            <a href="segunda.php?tipo=moradia">
-            <!-- <a href="segundaPg.html"> -->
+            <a href="verTodos.php?tipo=moradia">
                 <div id="btnInicialUm" class="btnIniciais">
                     <p class="titulosBtn">MORADIA</p>
-                    <img class="desenhos" src="imgs/imgsIcones/imgCasa.png" alt="">
+                    <img class="desenhos" src="imgs/imgsIcones/imgCasa.png" alt="Moradia">
                 </div>
-
             </a>
-            <a href="trabalhoETransporte.html">
-            <!-- <a href="segundaPg.html"> -->
+            <a href="verTodos.php?tipo=centropop">
                 <div id="btnInicialDois" class="btnIniciais">
                     <p class="titulosBtn">TRANSPORTE</p>
-                    <img class="desenhos" src="imgs/imgsIcones/imgOnibus.png" alt="">
+                    <img class="desenhos" src="imgs/imgsIcones/imgOnibus.png" alt="Transporte">
                 </div>
             </a>
-    
         </div>
 
         <div id="caixaTesteDois">
             <div id="divTxtPrincipal">
-                <h1 id="txtPrincipal">SERVIÇOS <br> DE <br>  AJUDA E<br>  INFORMAÇÃO</h1>
+                <h1 id="txtPrincipal">SERVIÇOS <br> DE <br> AJUDA E<br> INFORMAÇÃO</h1>
             </div>
         </div>
 
         <div id="caixaTesteTres">
-            <a href="segunda.php?tipo=alimentacao">
-            <!-- <a href="segundaPg.html"> -->
+            <a href="verTodos.php?tipo=alimentacao">
                 <div id="btnInicialTres" class="btnIniciais">
                     <p class="titulosBtn">ALIMENTAÇÃO</p>
-                    <img class="desenhos" src="imgs/imgsIcones/imgAlimentacao.png" alt="">
+                    <img class="desenhos" src="imgs/imgsIcones/imgAlimentacao.png" alt="Alimentação">
                 </div>
             </a>
-            <a href="segunda.php?tipo=postosaude">
-            <!-- <a href="segundaPg.html"> -->
+            <a href="verTodos.php?tipo=postosaude">
                 <div id="btnInicialQuatro" class="btnIniciais">
                     <p class="titulosBtn">POSTO</p>
-                    <img id="imgSaude" class="desenhos" src="imgs/imgsIcones/imgPosto.png" alt="">
+                    <img id="imgSaude" class="desenhos" src="imgs/imgsIcones/imgPosto.png" alt="Saúde">
                 </div>
             </a>
-            <a href="trabalhoETransporte.html">
-            <!-- <a href="segundaPg.html"> -->
+            <a href="verTodos.php?tipo=centropop">
                 <div id="btnInicialCinco" class="btnIniciais">
                     <p class="titulosBtn">TRABALHO</p>
-                    <img class="desenhos" src="imgs/imgsIcones/imgTrabalho.png" alt="">
+                    <img class="desenhos" src="imgs/imgsIcones/imgTrabalho.png" alt="Trabalho">
                 </div>
             </a>
-            <a href="segunda.php?tipo=centropop">
-            <!-- <a href="segundaPg.html"> -->
+            <a href="verTodos.php?tipo=centropop">
                 <div id="btnInicialSeis" class="btnIniciais">
                     <p class="titulosBtn">CENTRO POP </p>
-                    <img class="desenhos" id="imgCentro" src="imgs/imgsIcones/imgCentroPop.png" alt="">
+                    <img class="desenhos" id="imgCentro" src="imgs/imgsIcones/imgCentroPop.png" alt="Centro Pop">
                 </div>
             </a>
-
         </div>
 
         <div id="caixaTesteQuatro">
-
             <div id="divTxtSecundario">
                 <h2 id="txtSecundario">CLIQUE PARA <br> SABER ONDE<br> ENCONTRAR </h2>
             </div>
-
         </div>
-
-
-
-
     </main>
-    <footer>
-
-    </footer>
-    
+    <footer></footer>
 </body>
 </html>

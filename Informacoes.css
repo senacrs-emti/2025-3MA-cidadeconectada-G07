@@ -1,111 +1,93 @@
-:root{
+:root {
     --azul-fundo: #3069d5;
     --branco: #ffff;
-    --preto: #0000;
 }
-.poppins-regular {
-  font-family: "Poppins", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-}
-*{
-  font-family: "Poppins", sans-serif;
-}
+* { font-family: "Poppins", sans-serif; margin: 0; padding: 0; }
 
-body{
-    background-color: var(--azul-fundo);
-}
-#setaBack{
-    width: 13vw;
-    height: 10vh;
-    float: left;
-}
-#setaBackImg{
-    width: 6vw;
-    height: 4vh;
-    margin-top: 2vh;
-    margin-left: 2vw;
-}
-#casaIcon{
-    width: 17vw;
-    height: 10vh;
-    margin-left: 32.5vw;
-    margin-top: 2vh;
-}
+body { background-color: var(--azul-fundo); }
 
-#titulo{
-    color: var(--branco);
-    font-size: 3vh;
-    width: 80vw;
-    text-align: center;
-    margin-left: 10vw;
-}
-#mapa{
-    width: 55vw;
-    height: 25vh;
+/* Cabeçalho e Setas */
+#setaBackImg { width: 6vw; height: auto; margin: 2vh; cursor: pointer; }
+#casaIcon { width: 15vw; display: block; margin: 0 auto; }
+#titulo { color: var(--branco); font-size: 3.5vh; margin-top: 1vh; text-align: center; }
+
+/* O MAPA QUADRADO (NOVO) */
+.mapa-quadrado {
+    width: 60vw;       /* Largura do quadrado */
+    height: 30vh;      /* Altura do quadrado */
     background-color: var(--branco);
-    margin-left: 23vw;
-    margin-bottom: 4vh;
+    margin: 3vh auto;  /* Centraliza na tela */
+    border-radius: 15px;
+    overflow: hidden;
+    position: relative;
+    border: 4px solid white;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
 }
 
-.desLocais{
-    font-size: 2.5vh;
-    width: 60vw;
-    margin-left: 19vw;
-    text-align: center;
-    color: var(--branco);
-    margin-top: 0;
-    margin-bottom: 2vh;
-
-}
-#automoveis{
-    margin-left: 2vw;
-    display: block;
+.mapa-quadrado img {
     width: 100%;
-    height: 10vh;
+    height: 100%;
+    object-fit: cover; /* Faz a imagem preencher o quadrado sem distorcer */
 }
-.tituloautomoveis{
-    font-size: 1.4vh;
-    margin-top: 0%;
-    padding-top: 1vh;
+
+.ver-rota-btn {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
     text-align: center;
+    padding: 5px 0;
+    font-size: 1.5vh;
 }
-.atituloss{
-    text-decoration: none;
-    color: black;
-}
-.escolhasDeIr{
-    width: 17vw;
-    height: 10vh;
-    background-color: var(--branco);
-    margin-left: 5vw;
-    float: left;
-}
-.imgsTransporte{
-    width: 12vw;
-    height: 8vh;
-    margin-top: -1vh;
-    margin-left: 1.5vh;
-    padding-top: 0%;
-}
-#botoesadicionais{
+
+/* TEXTOS */
+.desLocais { font-size: 2vh; color: var(--branco); text-align: center; }
+
+/* CONTAINER DOS 3 BOTÕES (NOVO LAYOUT) */
+#automoveis-container {
     display: flex;
+    justify-content: center; /* Centraliza os 3 botões */
+    gap: 3vw; /* Espaço entre eles */
+    margin-top: 3vh;
+    width: 100%;
 }
-#verTodos{
-    width: 30vw;
-    height: 4vh;
+
+.botao-transporte {
+    width: 25vw; /* Largura um pouco maior já que são só 3 */
+    height: 12vh;
     background-color: var(--branco);
-    margin-left: 32vw;
-    float: left;
-    margin-top: 5vw;
-    border-radius: 30px 30px 30px 30px;
-    text-decoration: none;
-    color: black;
-    
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
 }
-.textBtAdd{
-    font-size: 1.4vh;
-    padding-top: 0;
-    margin-top: 1vh;
-    text-align: center;
+
+.titulo-btn {
+    font-size: 1.8vh;
+    color: black;
+    margin-bottom: 1vh;
+}
+
+.botao-transporte img {
+    width: 50%; /* Tamanho do ícone dentro do botão */
+    height: auto;
+}
+
+a { text-decoration: none; }
+
+/* Botão Ver Todos */
+#verTodos {
+    width: 50vw;
+    height: 5vh;
+    background-color: var(--branco);
+    margin: 5vh auto;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: black;
+    font-weight: bold;
 }

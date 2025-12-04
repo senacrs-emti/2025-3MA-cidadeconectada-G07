@@ -2,17 +2,12 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-// ==========================
-// 1) CONEXÃO COM O BANCO
-// ==========================
+
 $conn = new mysqli("localhost", "root", "", "atividadeotem");
 if ($conn->connect_error) {
     die("Erro de conexão: " . $conn->connect_error);
 }
 
-// ==========================
-// 2) PEGAR TIPO E ID DA URL
-// ==========================
 $tipo = $_GET['tipo'] ?? '';
 $id   = $_GET['id'] ?? 1; // se não mandar id, pega o primeiro
 
@@ -20,18 +15,12 @@ if ($tipo == '') {
     die("Nenhum tipo enviado!");
 }
 
-// ==========================
-// 3) VALIDAR TABELA
-// ==========================
 $tabelas_validas = ["moradia", "alimentacao", "postosaude", "centropop"];
 
 if (!in_array($tipo, $tabelas_validas)) {
     die("Tipo inválido!");
 }
 
-// ==========================
-// 4) PEGAR O REGISTRO CORRETO
-// ==========================
 $sql = "SELECT * FROM $tipo WHERE id = $id LIMIT 1";
 $result = $conn->query($sql);
 
@@ -41,9 +30,6 @@ if ($result->num_rows == 0) {
 
 $dados = $result->fetch_assoc();
 
-// ==========================
-// 5) SELECIONAR ÍCONE
-// ==========================
 $icones = [
     "moradia"     => "casa.icon.png",
     "alimentacao" => "prato.icon.png",
@@ -130,7 +116,7 @@ $icone = $icones[$tipo];
 
     <a href="Informacoes.php?tipo=<?php echo $tipo; ?>&id=<?php echo $id; ?>">
         <div id="maisInfo">
-            <h4 class="textBtAdd">MAIS INFORMAÇÕES</h4>
+            <h4 class="textBtAdd">MAISSS INFORMAÇÕES</h4>
         </div>
     </a>
 
@@ -139,6 +125,14 @@ $icone = $icones[$tipo];
             <h4 class="textBtAdd">VER TODOS</h4>
         </div>
     </a>
+    <!-- Botão para ver rota -->
+    <a href="PHP/rota.php?tabela=<?php echo urlencode($tipo); ?>&id=<?php echo intval($id); ?>" 
+    style="display: block; margin: 15px 0;">
+    <button style="width: 100%; padding: 12px; background-color: #3069d5; color: white; 
+                   border: none; border-radius: 8px; font-size: 16px; font-weight: bold; cursor: pointer;">
+        📍 VER ROTA NO MAPA
+    </button>
+</a>
 
 </div>
 

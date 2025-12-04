@@ -1,129 +1,160 @@
 <?php
-// rota.php
-include "conexao.php";
+// rota.php - O Arquivo Mestre de Mapas
+include "Conexao.php";
 
-// Recebe parâmetros
-$table = isset($_GET['table']) ? $_GET['table'] : '';
-$id = isset($_GET['id']) ? intval($_GET['id']) : 0;
+// 1. Recebe os dados da URL (Ex: rota.php?tabela=alimentacao&id=1)
+$tabela = isset($_GET['tabela']) ? $_GET['tabela'] : '';
+$id     = isset($_GET['id']) ? intval($_GET['id']) : 0;
 
-// validar tabela (evitar SQL injection por tabela nome)
-$allowed = ['alimentacao','moradia','postosaude','centropop','imagensbuton'];
-if (!in_array($table, $allowed)) {
-    die("Tabela inválida.");
+// 2. Validação de segurança
+$tabelas_permitidas = ['alimentacao', 'moradia', 'postosaude', 'centropop'];
+$endereco_destino = "";
+$nome_destino = "";
+
+if (in_array($tabela, $tabelas_permitidas) && $id > 0) {
+    // Busca o endereço específico no banco
+    $stmt = $conn->prepare("SELECT nome, endereco FROM $tabela WHERE id = ?");
+    $stmt->bind_param("i", $id);
+    $stmt->execute();
+    $resultado = $stmt->get_result();
+    
+    if ($row = $resultado->fetch_assoc()) {
+        $endereco_destino = $row['endereco']; // O Google vai ler isso (Ex: "Av. João Pessoa, 2384...")
+        $nome_destino = $row['nome'];
+    }
+    $stmt->close();
+} else {
+    //se algo der errado
+    $endereco_destino = "Centro Histórico, Porto Alegre";
+    $nome_destino = "Destino não encontrado";
 }
-
-if ($id <= 0) {
-    die("ID inválido.");
-}
-
-// Buscar endereço do banco
-$stmt = $conn->prepare("SELECT nome, endereco FROM {$table} WHERE id = ?");
-$stmt->bind_param("i", $id);
-$stmt->execute();
-$res = $stmt->get_result();
-if ($res->num_rows === 0) {
-    die("Registro não encontrado.");
-}
-$row = $res->fetch_assoc();
-$nome = $row['nome'];
-// o campo endereco pode conter quebras; limpamos
-$dest_address = trim(preg_replace("/\s+/", " ", $row['endereco']));
-
-$stmt->close();
-$conn->close();
-
-// PONTO A: Shopping Total — ajuste se quiser outro texto/exato endereço
-$origin_address = "Shopping Total, Porto Alegre, Brasil";
 ?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-<meta charset="utf-8">
-<title>Rota: <?php echo htmlspecialchars($nome); ?></title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-    body, html { height: 100%; margin: 0; font-family: Arial, sans-serif; }
-    #map { height: 70%; }
-    #controls { padding: 10px; }
-    .card { padding: 10px; background:#fff; box-shadow:0 1px 3px rgba(0,0,0,.1); margin-bottom:8px; }
-    label { margin-right:8px; }
-    select, button { padding:6px; font-size:14px; }
-</style>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Rota para <?php echo htmlspecialchars($nome_destino); ?></title>
+    <style>
+        body, html { height: 100%; margin: 0; font-family: 'Poppins', sans-serif; }
+        #map { height: 100%; width: 100%; }
+        
+        /* Painel flutuante de informações */
+        #painel-info {
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            max-width: 400px;
+            background: white;
+            padding: 15px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            z-index: 5;
+            text-align: center;
+        }
+        .btn-voltar {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 8px 15px;
+            background-color: #3069d5;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+    </style>
 </head>
 <body>
-<div class="card">
-    <h2>Rota para: <?php echo htmlspecialchars($nome); ?></h2>
-    <p><strong>Destino:</strong> <?php echo htmlspecialchars($dest_address); ?></p>
-    <p><strong>Origem (Ponto A):</strong> <?php echo htmlspecialchars($origin_address); ?></p>
 
-    <div id="controls">
-    <label for="mode">Escolha o modo:</label>
-    <select id="mode">
-        <option value="DRIVING">Carro</option>
-        <option value="BICYCLING">Bicicleta</option>
-        <option value="TRANSIT">Ônibus / Transporte público</option>
-        <option value="WALKING">A pé</option>
-    </select>
-    <button id="goBtn">Traçar rota</button>
-    <button id="resetBtn">Centralizar mapa</button>
+    <div id="painel-info">
+        <h3 style="margin: 0; color: #3069d5;"><?php echo htmlspecialchars($nome_destino); ?></h3>
+        <p style="margin: 5px 0; font-size: 14px; color: #555;"><?php echo htmlspecialchars($endereco_destino); ?></p>
+        <div id="status-gps" style="font-size: 12px; color: orange;">Buscando sua localização...</div>
+        <a href="javascript:history.back()" class="btn-voltar">Voltar</a>
     </div>
-</div>
 
-<div id="map"></div>
-<div id="directionsPanel" style="height: 30%; overflow:auto; padding:10px;"></div>
+    <div id="map"></div>
 
-<script>
-    // Variáveis vindas do PHP
-    const originAddress = <?php echo json_encode($origin_address, JSON_HEX_TAG|JSON_HEX_APOS|JSON_HEX_QUOT|JSON_HEX_AMP); ?>;
-    const destAddress   = <?php echo json_encode($dest_address, JSON_HEX_TAG|JSON_HEX_APOS|JSON_HEX_QUOT|JSON_HEX_AMP); ?>;
+    <script>
+        // Passa o endereço do PHP para o JS
+        const destinoFinal = "<?php echo $endereco_destino; ?> - Porto Alegre, RS"; 
 
-    let map, directionsService, directionsRenderer;
+        let map, directionsService, directionsRenderer;
 
-    function initMap() {
-      // mapa inicial centrado no ponto A (Shopping Total)
-    map = new google.maps.Map(document.getElementById("map"), {
-        zoom: 14,
-        center: { lat: -30.033, lng: -51.23 } // Coordenada aproximada de Porto Alegre; será recentered ao traçar rota
-    });
+        function initMap() {
+            // Inicializa o mapa
+            directionsService = new google.maps.DirectionsService();
+            directionsRenderer = new google.maps.DirectionsRenderer();
+            
+            map = new google.maps.Map(document.getElementById("map"), {
+                zoom: 14,
+                center: { lat: -30.0346, lng: -51.2177 }, // Centro de POA padrão
+                disableDefaultUI: false
+            });
+            
+            directionsRenderer.setMap(map);
 
-    directionsService = new google.maps.DirectionsService();
-    directionsRenderer = new google.maps.DirectionsRenderer({ map: map, panel: document.getElementById('directionsPanel') });
-    
-      // desenhar rota automaticamente ao carregar
-    calculateAndDisplayRoute();
-
-    document.getElementById('goBtn').addEventListener('click', () => {
-        calculateAndDisplayRoute();
-    });
-
-    document.getElementById('resetBtn').addEventListener('click', () => {
-        map.setCenter({ lat: -30.033, lng: -51.23 });
-        map.setZoom(14);
-    });
-    }
-
-    function calculateAndDisplayRoute() {
-      const selectedMode = document.getElementById('mode').value; // DRIVING, BICYCLING, TRANSIT, WALKING
-
-      // Monta a requisição para DirectionsService
-    directionsService.route({
-        origin: originAddress,
-        destination: destAddress,
-        travelMode: google.maps.TravelMode[selectedMode],
-        provideRouteAlternatives: false
-    }, (response, status) => {
-        if (status === "OK") {
-        directionsRenderer.setDirections(response);
-        } else {
-        alert("Falha ao traçar rota: " + status + ". Tente outro modo (ex: TRANSIT pode não estar disponível).");
+            // Tenta pegar a localização
+            buscarLocalizacao();
         }
-    });
-    }
-</script>
 
+        function buscarLocalizacao() {
+            if (navigator.geolocation) {
+                // Opções para melhorar a precisão (High Accuracy)
+                const options = {
+                    enableHighAccuracy: true, // Força o uso de GPS se disponível
+                    timeout: 10000,
+                    maximumAge: 0
+                };
 
-<script async
-    src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY_HERE&callback=initMap&v=weekly"
-></script>
+                navigator.geolocation.getCurrentPosition(
+                    (position) => {
+                        const minhaPosicao = {
+                            lat: position.coords.latitude,
+                            lng: position.coords.longitude
+                        };
+                        
+                        document.getElementById("status-gps").innerText = "Localização encontrada! Traçando rota...";
+                        document.getElementById("status-gps").style.color = "green";
+                        
+                        traçarRota(minhaPosicao);
+                    },
+                    (error) => {
+                        console.error(error);
+                        document.getElementById("status-gps").innerText = "Erro ao obter localização. Usando Shopping Total como origem.";
+                        document.getElementById("status-gps").style.color = "red";
+                        // Fallback: Se der erro, sai do Shopping Total
+                        traçarRota("Shopping Total, Porto Alegre");
+                    },
+                    options
+                );
+            } else {
+                alert("Seu navegador não suporta geolocalização.");
+            }
+        }
+
+        function traçarRota(origem) {
+            const request = {
+                origin: origem,
+                destination: destinoFinal,
+                travelMode: google.maps.TravelMode.WALKING // Padrão: A PÉ (pode mudar para DRIVING)
+            };
+
+            directionsService.route(request, (result, status) => {
+                if (status === 'OK') {
+                    directionsRenderer.setDirections(result);
+                } else {
+                    alert('Não foi possível traçar a rota: ' + status);
+                }
+            });
+        }
+    </script>
+
+    <script async
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB0kJz1G9dw3pQMaYE3Cci1Osken1w2KuY&callback=initMap&v=weekly">
+    </script>
 </body>
 </html>
