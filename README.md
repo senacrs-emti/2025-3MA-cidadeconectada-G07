@@ -5,15 +5,24 @@
     DESCRIÇÃO DO PROJETO:
 
  O Serviços de Ajuda e Informação é uma ferramenta criada para facilitar a conexão entre pessoas em situação de vulnerabilidade social e os órgãos responsáveis pelo atendimento de cada necessidade específica.
+ 
  A proposta consiste na instalação de totens interativos que reúnem informações sobre instituições e serviços essenciais voltados à população de baixa renda. Esses serviços são organizados em categorias como:
+ 
  Moradia;
+ 
  Transporte;
+ 
  Alimentação;
+ 
  Postos de Saúde;
+ 
  Trabalho;
+ 
  Centros POP.
+ 
 
 Por meio dos totens, o usuário poderá localizar o centro de atendimento mais próximo relacionado à sua demanda, além de visualizar todos os pontos disponíveis na região para a categoria escolhida.
+
 O sistema também permite selecionar o tipo de trajeto preferido — a pé, de ônibusou de bicicleta, principais transportes acessiveis ao público alvo.
 
     OBJETIVOS:
