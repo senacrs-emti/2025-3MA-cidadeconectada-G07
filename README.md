@@ -1,11 +1,11 @@
 # 2025-3MA-cidadeconectada-G07
 
-TÍTULO: SERVIÇOS DE AJUDA E INFORMAÇÃO
+    TÍTULO: SERVIÇOS DE AJUDA E INFORMAÇÃO
 
-DESCRIÇÃO DO PROJETO:
+    DESCRIÇÃO DO PROJETO:
 
-    O Serviços de Ajuda e Informação é uma ferramenta criada para facilitar a conexão entre pessoas em situação de vulnerabilidade social e os órgãos responsáveis pelo atendimento de cada necessidade específica.
-    A proposta consiste na instalação de totens interativos que reúnem informações sobre instituições e serviços essenciais voltados à população de baixa renda. Esses serviços são organizados em categorias como:
+ O Serviços de Ajuda e Informação é uma ferramenta criada para facilitar a conexão entre pessoas em situação de vulnerabilidade social e os órgãos responsáveis pelo atendimento de cada necessidade específica.
+ A proposta consiste na instalação de totens interativos que reúnem informações sobre instituições e serviços essenciais voltados à população de baixa renda. Esses serviços são organizados em categorias como:
  Moradia;
  Transporte;
  Alimentação;
@@ -13,17 +13,17 @@ DESCRIÇÃO DO PROJETO:
  Trabalho;
  Centros POP.
 
-    Por meio dos totens, o usuário poderá localizar o centro de atendimento mais próximo relacionado à sua demanda, além de visualizar todos os pontos disponíveis na região para a categoria escolhida.
-    O sistema também permite selecionar o tipo de trajeto preferido — a pé, de ônibusou de bicicleta, principais transportes acessiveis ao público alvo.
+Por meio dos totens, o usuário poderá localizar o centro de atendimento mais próximo relacionado à sua demanda, além de visualizar todos os pontos disponíveis na região para a categoria escolhida.
+O sistema também permite selecionar o tipo de trajeto preferido — a pé, de ônibusou de bicicleta, principais transportes acessiveis ao público alvo.
 
-OBJETIVOS:
+    OBJETIVOS:
 
  Facilitar o acesso a serviços públicos essenciais;
  Oferecer informações claras, rápidas e acessíveis para pessoas em situação de vulnerabilidade;
  Promover autonomia para que os usuários encontrem o atendimento necessário de forma simples.
 
 
-FUNCIONALIDADES:
+    FUNCIONALIDADES:
 
  Totens com interface simples e acessível;
  Categorias de serviços organizadas por necessidade;
@@ -31,7 +31,7 @@ FUNCIONALIDADES:
  Exibição de rotas com opções de trajeto.
 
 
-TECNOLOGIAS UTILIZADAS:
+    TECNOLOGIAS UTILIZADAS:
 
  HTML, CSS, PHP;
  API de mapas (Google Maps)
