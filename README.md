@@ -1,6 +1,7 @@
 # 2025-3MA-cidadeconectada-G07
 
 TÍTULO: TOTEM DE AJUDA A PESSOAS VULNERAVEIS
+   
     DESCRIÇÃO DO PROJETO:
 
  O "Totem de ajuda a pessoas vulneráveis" é uma ferramenta criada para facilitar a conexão entre pessoas em situação de vulnerabilidade social e os órgãos responsáveis pelo atendimento de cada necessidade específica.
