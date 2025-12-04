@@ -16,7 +16,7 @@ body {
     margin: 0;      /* Remove a margem externa padrão */
     background-color: var(--azul-fundo);
     width: 100%;
-    height: 1000vh;
+    height: 100vh;
 }
 #caixaTesteUm{
     width: 32%;

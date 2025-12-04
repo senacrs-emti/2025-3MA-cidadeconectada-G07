@@ -47,6 +47,17 @@ $icone = $icones[$tipo];
     <title>Totem</title>
 
     <link rel="stylesheet" href="segundaPg.css?v=<?php echo time(); ?>">
+    
+    <div vw class="enabled">
+    <div vw-access-button class="active"></div>
+    <div vw-plugin-wrapper>
+      <div class="vw-plugin-top-wrapper"></div>
+    </div>
+  </div>
+  <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+  <script>
+    new window.VLibras.Widget('https://vlibras.gov.br/app');
+  </script>
 </head>
 
 <body>
@@ -84,14 +95,7 @@ $icone = $icones[$tipo];
             <img class="imgsTransporte" src="imgs/imgsIcones/bicicletaImg.png" alt="">
         </div>
     </a>
-
-    <a href="comoIr.php?tipo=<?php echo $tipo; ?>&id=<?php echo $id; ?>&modo=carro" class="atituloss">
-        <div class="escolhasDeIr" id="carro">
-            <h3 class="tituloautomoveis">CARRO</h3>
-            <img class="imgsTransporte" src="imgs/imgsIcones/carroImg.png" alt="">
-        </div>
-    </a>
-
+    
     <a href="comoIr.php?tipo=<?php echo $tipo; ?>&id=<?php echo $id; ?>&modo=onibus" class="atituloss">
         <div class="escolhasDeIr" id="onibus">
             <h3 class="tituloautomoveis">ÔNIBUS</h3>
