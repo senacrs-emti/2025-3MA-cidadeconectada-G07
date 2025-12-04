@@ -15,9 +15,8 @@
  Alimentação;
  
  Postos de Saúde;
- 
+
  Trabalho;
- 
  Centros POP.
  
 
@@ -28,15 +27,20 @@ O sistema também permite selecionar o tipo de trajeto preferido — a pé, de �
     OBJETIVOS:
 
  Facilitar o acesso a serviços públicos essenciais;
+ 
  Oferecer informações claras, rápidas e acessíveis para pessoas em situação de vulnerabilidade;
+ 
  Promover autonomia para que os usuários encontrem o atendimento necessário de forma simples.
 
 
     FUNCIONALIDADES:
 
  Totens com interface simples e acessível;
+ 
  Categorias de serviços organizadas por necessidade;
+ 
  Localização por proximidade usando georreferenciamento;
+ 
  Exibição de rotas com opções de trajeto.
 
 
