@@ -1,10 +1,9 @@
 # 2025-3MA-cidadeconectada-G07
 
-    TÍTULO: SERVIÇOS DE AJUDA E INFORMAÇÃO
-
+TÍTULO: TOTEM DE AJUDA A PESSOAS VULNERAVEIS
     DESCRIÇÃO DO PROJETO:
 
- O Serviços de Ajuda e Informação é uma ferramenta criada para facilitar a conexão entre pessoas em situação de vulnerabilidade social e os órgãos responsáveis pelo atendimento de cada necessidade específica.
+ O "Totem de ajuda a pessoas vulneráveis" é uma ferramenta criada para facilitar a conexão entre pessoas em situação de vulnerabilidade social e os órgãos responsáveis pelo atendimento de cada necessidade específica.
  
  A proposta consiste na instalação de totens interativos que reúnem informações sobre instituições e serviços essenciais voltados à população de baixa renda. Esses serviços são organizados em categorias como:
  
